@@ -22,6 +22,11 @@ app.use(express.static(path.join(__dirname, "../client/dist")));
 app.use("/api/tasks", require("./routes/tasks"));
 app.use("/api/auth", require("./routes/authenticate"));
 
+// we can send our entry html file in any other case
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../client/dist/index.html"));
+});
+
 // Error handler
 app.use((err, req, res, next) => {
   console.error("----- An error happened -----");
