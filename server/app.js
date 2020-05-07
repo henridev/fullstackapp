@@ -1,4 +1,5 @@
 const path = require("path");
+d;
 require("dotenv").config({ path: __dirname + "/.env" });
 const app = require("express")();
 const cors = require("cors");
