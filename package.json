@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "preinstall": "echo --- preinstall --- && cd server && npm install && cd ../client && npm install && npm run build && cd ..",
+    "preinstall": "echo --- preinstall --- && cd server && npm install && cd ..",
     "start": "echo --- start --- && npm server",
     "test": "echo \"Error: no test specified\" && exit 1",
     "server": "cd server && npm run start",

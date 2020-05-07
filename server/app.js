@@ -16,6 +16,8 @@ app.use(
   bodyParser.json()
 );
 
+app.use(express.static(path.join(__dirname, "../client/dist")));
+
 app.use("/api/tasks", require("./routes/tasks"));
 app.use("/api/auth", require("./routes/authenticate"));
 
