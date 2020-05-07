@@ -3,12 +3,11 @@ import { connect } from "react-redux";
 import TaskList from "./TaskList";
 
 function Dashboard({ groups }) {
-  console.log("groups", groups);
   return (
     <div>
-      <h1>To Do list</h1>
-      {groups.map((group) => (
-        <TaskList id={group.id} name={group.name} />
+      <h1>My Todos</h1>
+      {groups.map((group, i) => (
+        <TaskList key={i} id={group.id} name={group.name} />
       ))}
     </div>
   );

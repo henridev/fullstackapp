@@ -8,6 +8,7 @@ module.exports = {
   devtool: "source-map",
   entry: path.resolve(__dirname, "src", "index.jsx"),
   output: {
+    publicPath: "/",
     path: path.join(__dirname, "/dist"),
     filename: "index_bundle.js",
   },
@@ -42,6 +43,9 @@ module.exports = {
         ],
       },
     ],
+  },
+  devServer: {
+    historyApiFallback: true,
   },
   plugins: [
     new HtmlWebPackPlugin({
