@@ -44,7 +44,7 @@ export const processAuthenticateUser = (
 ) => {
   return {
     type: PROCESS_AUTHENTICATE_USER,
-    currentSession,
+    session: currentSession,
     authenticated: status,
   };
 };

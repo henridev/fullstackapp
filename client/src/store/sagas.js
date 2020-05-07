@@ -69,8 +69,15 @@ export function* requestAuthenicateUserSaga() {
       console.log("data", data);
       if (!data) throw new Error("failed");
       yield put(mutations.setState(data.state));
-      yield put(mutations.processAuthenticateUser(mutations.AUTHENTICATED));
-      history.push("/dashboard");
+      console.log("state set");
+      yield put(
+        mutations.processAuthenticateUser(
+          mutations.AUTHENTICATED,
+          data.state.session
+        )
+      );
+      console.log("processing authentication");
+      history.push("/home");
     } catch (error) {
       yield put(mutations.processAuthenticateUser(mutations.NOT_AUTHENTICATED));
       console.log("error can't authenticate user", error);

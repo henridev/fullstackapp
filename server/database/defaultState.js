@@ -5,13 +5,13 @@ module.exports = {
     {
       id: "U1",
       name: "Dev",
-      // passwordHash: md5("TUPLES"),
+      passwordHash: md5("TUPLES"),
       friends: [`U2`],
     },
     {
       id: "U2",
       name: "C. Eeyo",
-      // passwordHash: md5("PROFITING"),
+      passwordHash: md5("PROFITING"),
       friends: [],
     },
   ],

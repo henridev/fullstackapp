@@ -26,11 +26,11 @@ async function login(username, password) {
   const { collection, client } = await getCollection("users");
   const user = await collection.findOne({ name: username });
   client.close();
-  console.log("user", user);
   if (!user) {
     return null;
   } else {
     let hash = md5(password);
+    console.log("hash", hash, user.passwordHash);
     if (user.passwordHash !== hash) {
       return null;
     }

@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 function Navigation() {
   return (
     <div>
-      <Link to="/dashboard">overview</Link>
+      <Link to="/home">overview</Link>
     </div>
   );
 }

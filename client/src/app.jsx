@@ -11,7 +11,7 @@ import Login from "./components/Login";
 
 const RouteGuard = (Component) => ({ match }) => {
   return !store.getState().session.authenticated ? (
-    <Redirect to="/" />
+    <Redirect to="/login" />
   ) : (
     <Component match={match} />
   );
@@ -22,10 +22,10 @@ function App(props) {
     <Router history={history}>
       <Provider store={store}>
         <Navigation />
-        <Route exact path="/" component={Login} />
-        <Route exact path="/dashboard" render={RouteGuard(Dashboard)} />
+        <Route exact path="/login" component={Login} />
+        <Route exact path="/home" render={RouteGuard(Dashboard)} />
         <Route exact path="/task/:id" render={RouteGuard(TaskDetail)} />
-        <Route path="/" render={RouteGuard()} />
+        {/* <Route path="/" render={RouteGuard()} /> */}
       </Provider>
     </Router>
   );
