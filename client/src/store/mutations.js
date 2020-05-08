@@ -6,6 +6,7 @@ export const SET_TASK_GROUP = "SET_TASK_GROUP";
 export const SET_TASK_NAME = "SET_TASK_NAME";
 export const REQUEST_AUTHENTICATE_USER = "REQUEST_AUTHENTICATE_USER";
 export const PROCESS_AUTHENTICATE_USER = "PROCESS_AUTHENTICATE_USER";
+export const REQUEST_USER = "REQUEST_USER";
 
 export const AUTHENTICATING = "AUTHENTICATING";
 export const AUTHENTICATED = "AUTHENTICATED";
@@ -44,7 +45,7 @@ export const processAuthenticateUser = (
 ) => {
   return {
     type: PROCESS_AUTHENTICATE_USER,
-    session: currentSession,
+    currentSession: currentSession,
     authenticated: status,
   };
 };
@@ -53,5 +54,12 @@ export const setState = (state = {}) => {
   return {
     type: SET_STATE,
     state,
+  };
+};
+
+export const requestUser = (userId) => {
+  return {
+    type: REQUEST_USER,
+    userId,
   };
 };

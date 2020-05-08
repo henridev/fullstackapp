@@ -8,6 +8,7 @@ import { Router, Route, Redirect } from "react-router-dom";
 import { history } from "./store/history";
 import Navigation from "./components/Navigation";
 import Login from "./components/Login";
+import User from "./components/User";
 
 const RouteGuard = (Component) => ({ match }) => {
   return !store.getState().session.authenticated ? (
@@ -24,6 +25,7 @@ function App(props) {
         <Navigation />
         <Route exact path="/login" component={Login} />
         <Route exact path="/home" render={RouteGuard(Dashboard)} />
+        <Route exact path="/user" render={RouteGuard(User)} />
         <Route exact path="/task/:id" render={RouteGuard(TaskDetail)} />
         {/* <Route path="/" render={RouteGuard()} /> */}
       </Provider>

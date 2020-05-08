@@ -1,9 +1,9 @@
-const path = require("path");
-require("dotenv").config();
 const MongoClient = require("mongodb").MongoClient;
+const path = require("path");
+require("dotenv").config({ path: path.join(__dirname, "..", ".env") });
 
-const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0-779sm.mongodb.net/test?retryWrites=true&w=majority`;
-
+const uri = process.env.MONGODB_URI;
+console.log("uri", path.join(__dirname, "..", ".env"));
 async function connectToDB() {
   try {
     const client = await MongoClient.connect(uri);

@@ -11,6 +11,7 @@ import {
 import { comments } from "./reducers/comments";
 import { tasks } from "./reducers/tasks";
 import { users } from "./reducers/users";
+import { user } from "./reducers/user";
 import { groups } from "./reducers/groups";
 import { session } from "./reducers/session";
 
@@ -21,6 +22,7 @@ export const store = createStore(
     comments,
     groups,
     users,
+    user,
   }),
   applyMiddleware(createLogger(), sagaMiddleware)
 );

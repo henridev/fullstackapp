@@ -84,3 +84,28 @@ export function* requestAuthenicateUserSaga() {
     }
   }
 }
+
+export function* requestUserSage() {
+  while (true) {
+    const user = yield take([mutations.REQUEST_USER]);
+    path = `/api/auth/user/${user.id}`;
+    try {
+      const { data } = yield axios.get(url + path);
+      console.log("data", data);
+      if (!data) throw new Error("failed");
+      yield put(mutations.setState(data.state));
+      console.log("state set");
+      yield put(
+        mutations.processAuthenticateUser(
+          mutations.AUTHENTICATED,
+          data.state.session
+        )
+      );
+      console.log("processing authentication");
+      history.push("/home");
+    } catch (error) {
+      yield put(mutations.processAuthenticateUser(mutations.NOT_AUTHENTICATED));
+      console.log("error can't authenticate user", error);
+    }
+  }
+}

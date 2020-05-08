@@ -6,9 +6,16 @@ function Dashboard({ groups }) {
   return (
     <div>
       <h1>My Todos</h1>
-      {groups.map((group, i) => (
-        <TaskList key={i} id={group.id} name={group.name} />
-      ))}
+      <div className="row">
+        {groups.map((group, i) => (
+          <TaskList
+            key={i}
+            id={group.id}
+            name={group.name}
+            className="column"
+          />
+        ))}
+      </div>
     </div>
   );
 }

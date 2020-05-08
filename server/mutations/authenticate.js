@@ -19,6 +19,7 @@ async function assembleUserState(user) {
     tasks,
     groups,
     session: { authenticated: "AUTHENTICATED", id: user.id },
+    user: { name: user.name, id: user.id },
   };
 }
 

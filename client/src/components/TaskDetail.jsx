@@ -13,21 +13,26 @@ function TaskDetail({
   setTaskName,
 }) {
   return (
-    <>
+    <div className="card p-3 col-6">
       <div>
         <input
+          className="form-control form-control-lg"
           type="text"
           value={task.name}
           onChange={(e) => setTaskName(id, e.target.value)}
         />
       </div>
-      <div>
-        <button onClick={setTaskComplete.bind(this, id, !isComplete)}>
+      <div className="mt-3">
+        <button
+          className="btn btn-primary mt-2"
+          onClick={setTaskComplete.bind(this, id, !isComplete)}
+        >
           {isComplete ? `re-open` : `complete`}
         </button>
       </div>
-      <div>
+      <div className="mt-3">
         <select
+          className="form-control"
           name="options"
           value={task.group}
           onChange={(e) => setTaskGroup(id, e.target.value)}
@@ -43,10 +48,10 @@ function TaskDetail({
       </div>
       <div>
         <Link to="/dashboard">
-          <button>Done</button>
+          <button className="btn btn-primary mt-2">Done</button>
         </Link>
       </div>
-    </>
+    </div>
   );
 }
 
