@@ -3,7 +3,7 @@ const path = require("path");
 require("dotenv").config({ path: path.join(__dirname, "..", ".env") });
 
 const uri = process.env.MONGODB_URI;
-console.log("uri", path.join(__dirname, "..", ".env"));
+
 async function connectToDB() {
   try {
     const client = await MongoClient.connect(uri);

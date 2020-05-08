@@ -6,6 +6,7 @@ import {
   taskCreationSaga,
   taskUpdateSaga,
   requestAuthenicateUserSaga,
+  requestUserSaga,
 } from "./sagas";
 
 import { comments } from "./reducers/comments";
@@ -30,3 +31,4 @@ export const store = createStore(
 sagaMiddleware.run(taskCreationSaga);
 sagaMiddleware.run(taskUpdateSaga);
 sagaMiddleware.run(requestAuthenicateUserSaga);
+sagaMiddleware.run(requestUserSaga);

@@ -1,9 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
-import { requestTaskCreation } from "../store/mutations";
-import { Link } from "react-router-dom";
+import { requestUser } from "../store/mutations";
 
-function TaskList({ user }) {
+function User({ userId, setUserInfo, user }) {
+  useEffect(() => {
+    setUserInfo(userId);
+    console.log("here");
+  }, []);
+
+  if (!user) return <div>Loading</div>;
+
   return (
     <div className="card p-2 m-2 bg-light ">
       <div class="card-header">{user.name}</div>
@@ -15,18 +21,20 @@ function TaskList({ user }) {
   );
 }
 
-function mapStateToProps({ user }, ownProps) {
+function mapStateToProps({ session, user }, ownProps) {
   return {
+    userId: session.id,
     user,
   };
 }
 
-// function mapDispatchToProps(dispatch, ownProps) {
-//   return {
-//     createNewTask(id) {
-//       dispatch(requestTaskCreation(id));
-//     },
-//   };
-// }
+function mapDispatchToProps(dispatch, ownProps) {
+  return {
+    setUserInfo(id) {
+      console.log("userinfo", id);
+      dispatch(requestUser(id));
+    },
+  };
+}
 
-export default connect(mapStateToProps)(TaskList);
+export default connect(mapStateToProps, mapDispatchToProps)(User);

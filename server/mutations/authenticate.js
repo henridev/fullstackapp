@@ -42,6 +42,16 @@ async function login(username, password) {
   }
 }
 
+async function getUser(userId) {
+  const { collection, client } = await getCollection("users");
+  const user = await collection.findOne({ id: userId });
+  if (user) {
+    user.passwordHash = null;
+    return user;
+  }
+  return null;
+}
 module.exports = {
   login,
+  getUser,
 };
